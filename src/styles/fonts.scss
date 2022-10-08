@@ -1,0 +1,20 @@
+@import 'mixins';
+
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-Super', 1000, normal, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-SuperItalic', 1000, italic, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-Black', 900, normal, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-BlackItalic', 900, italic, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-Bold', 700, normal, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-BoldItalic', 700, italic, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-Semibold', 600, normal, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-SemiboldItalic', 600, italic, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-Medium', 500, normal, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-MediumItalic', 500, italic, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-Regular', 400, normal, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-RegularItalic', 400, italic, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-Light', 300, normal, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-LightItalic', 300, italic, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-Extralight', 200, normal, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-ExtralightItalic', 200, italic, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-Thin', 100, normal, otf);
+@include font-face(GraphikLCG, '../assets/fonts/GraphikLCG/GraphikLCG-ThinItalic', 100, italic, otf);

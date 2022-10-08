@@ -1,0 +1,16 @@
+$color: green;
+$textColor: red;
+$primaryColor: blue;
+// Animation duration
+$duration: 0.2s;
+// Breakpoints
+$desktop: 1280px;
+$phone: 768px;
+// Z-index
+$zHeader: 10;
+$zDrawer: 20;
+$zModal: 30;
+$zPopup: 40;
+// helpers
+$cursor: '(hover: hover) and (pointer: fine)';
+$touch: '(pointer: coarse)';

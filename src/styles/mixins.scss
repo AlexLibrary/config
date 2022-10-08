@@ -1,0 +1,309 @@
+@import 'variables';
+
+// Media
+@mixin media($size) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin mediaTablet {
+  @media screen and (max-width: ($desktop - 1)) {
+    @content;
+  }
+}
+
+@mixin mediaPhone {
+  @media screen and (max-width: ($phone - 1)) {
+    @content;
+  }
+}
+
+// # Helpers
+@mixin fadeAnimation($duration: 0.2s, $mod: 'open') {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility $duration, opacity $duration;
+
+  &_#{$mod} {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity $duration;
+  }
+}
+
+@mixin square($size, $radius: 0) {
+  width: $size;
+  height: $size;
+
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+}
+
+// hidden scrollbar
+@mixin scrollbarHidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+//
+@mixin fullWindowWidth {
+  width: calc(100% + (100vw - 100%));
+  margin-right: calc(((100vw - 100%) / -2));
+  margin-left: calc(((100vw - 100%) / -2));
+  padding-right: calc(((100vw - 100%) / 2));
+  padding-left: calc(((100vw - 100%) / 2));
+}
+
+// Swiper
+@mixin resetSwiperPagination {
+  position: static;
+  top: auto;
+  bottom: auto;
+  right: auto;
+  left: auto;
+  width: auto;
+}
+
+// hover
+@mixin hover() {
+  @media #{$cursor} {
+    &:hover {
+      @content;
+    }
+  }
+
+  @media #{$touch} {
+    &:active {
+      @content;
+    }
+  }
+}
+
+@mixin flexGridWrapper($offset: 6) {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% + #{$offset} * 2px);
+  margin: $offset * -1px;
+}
+
+@mixin flexGridWrapperChild($offset: 6, $columns: 0) {
+  display: flex;
+  padding: $offset * 1px;
+  @if $columns != 0 {
+    width: calc(100% / #{$columns});
+  } @else {
+    width: auto;
+  }
+}
+
+@mixin heroClipPath($offsetDown) {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  display: flex;
+  height: $offsetDown;
+  background-color: $bgLight;
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+
+// # Helpers - end
+
+// Fonts
+@mixin fzDisplayL {
+  font-weight: 600;
+  font-size: 200px;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  @include mediaTablet {
+    font-size: 140px;
+    line-height: 90%;
+  }
+  @include mediaPhone {
+    font-size: 66px;
+    line-height: 90%;
+  }
+}
+
+@mixin fzTitleXXXL {
+  font-size: 110px;
+  line-height: 100%;
+  letter-spacing: -0.05em;
+}
+
+@mixin fzTitleXXL {
+  font-weight: 600;
+  font-size: 96px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+@mixin fzTitleXL {
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  @include mediaPhone {
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 90%;
+    letter-spacing: -0.03em;
+  }
+}
+
+@mixin fzTitleL {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  @include mediaPhone {
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 90%;
+  }
+}
+
+@mixin fzTitleM {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  @include mediaPhone {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+  }
+}
+
+@mixin fzTitleS {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  @include mediaPhone {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 110%;
+  }
+}
+
+@mixin fzBodyXXL {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1.2;
+}
+
+@mixin fzBodyXL {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  @include mediaPhone {
+    font-size: 24px;
+  }
+}
+
+@mixin fzBodyL {
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  @include mediaPhone() {
+    font-size: 20px;
+    line-height: 110%;
+  }
+}
+
+@mixin fzBodyM {
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  @include mediaPhone {
+    font-size: 18px;
+    line-height: 125%;
+  }
+}
+
+@mixin fzBodyS {
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  @include mediaPhone {
+    font-size: 16px;
+  }
+}
+
+@mixin fzBodyXS {
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+@mixin fzBodyXXS {
+  font-size: 16px;
+  line-height: 1.25;
+  @include mediaPhone {
+    font-size: 14px;
+  }
+}
+
+@mixin fzBodyXXXS {
+  font-size: 12px;
+  line-height: 1.25;
+}
+//
+
+// =============================================================================
+// String Replace (https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6)
+// =============================================================================
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// =============================================================================
+// Font Face (https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6)
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+    eot: '?',
+    svg: '#' + str-replace($name, ' ', '_'),
+  );
+
+  $formats: (
+    otf: 'opentype',
+    ttf: 'truetype',
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + '.' + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+    font-display: swap; // add this line
+  }
+}
