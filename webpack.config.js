@@ -1,9 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = {
-    mode: "development",
-    watch: true,
+module.exports = (env, argv) => ({
+    watch: argv.mode === 'development',
     entry: ['./src/index.html', './src/styles/styles.scss', './src/index.js'],
     output: {
       assetModuleFilename: "[name][ext]",
@@ -31,16 +30,8 @@ module.exports = {
         {
           test: /\.(s(a|c)ss)$/,
           use: [
-            'style-loader', // creates style nodes from JS strings
             MiniCssExtractPlugin.loader,
-            {
-              loader: "css-loader",
-              options: {
-                modules: true,
-                sourceMap: true,
-                importLoaders: 1
-              }
-            },
+            'css-loader',
             'postcss-loader', // post process the compiled CSS
             'sass-loader', // compiles Sass to CSS, using Node Sass by default
           ],
@@ -80,4 +71,4 @@ module.exports = {
         filename: "main.min.[hash].css"
       }),
     ]
-};
+});
